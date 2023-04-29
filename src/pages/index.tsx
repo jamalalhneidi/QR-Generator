@@ -59,11 +59,12 @@ export default function Home() {
                             <button onClick={clearInput}>Clear</button>
                         </div>
                     </div>
-                    <div className={`ml-8 flex flex-col ${!input && 'invisible'}`}>
-                        <div className='w-[200px] h-[200px]'>
+                    <div className={`ml-8 flex flex-col`}>
+                        <div className='bg-white w-[200px] h-[200px]'>
                             {input && <InlineSVG src={svg} width={200} height={200}/>}
                         </div>
-                        <div className='mt-4 flex items-center justify-center dark:text-gray-100'>
+                        <div
+                            className={`mt-4 flex items-center justify-center dark:text-gray-100 ${!input && 'invisible'}`}>
                             <Dropdown placement={'bottom'} trigger={'hover'}
                                       label={<ArrowDownTrayIcon className='w-[24px] h-[24px]'/>} inline
                                       arrowIcon={false}>
