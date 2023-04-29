@@ -14,6 +14,7 @@
 }
 
 .inputActions {
+    margin-top: 10px;
 }
 
 .container {
@@ -33,6 +34,10 @@
 }
 
 .previewActions {
-    width: 100%;
     margin-top: 10px;
+}
+
+.menu {
+    background-color: darkslategray;
+    color: white;
 }

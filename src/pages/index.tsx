@@ -14,10 +14,11 @@ export default function Home() {
     const OnInputChange = (e) => {
         setInput(e.target.value);
     };
-    const onClear = () => {
+    const clearInput = () => {
         setInput('');
         textareaRef.current?.focus();
     };
+    // TODO dropdown menu to download as {svg,png}
     const downloadAsSvg = () => {
         const svgBlob = new Blob([svg], {type: "image/svg+xml;charset=utf-8"});
         const svgUrl = URL.createObjectURL(svgBlob);
@@ -44,6 +45,7 @@ export default function Home() {
             <Head>
                 <title>QR Code Generator</title>
             </Head>
+
             <div className={styles.main}>
                 <div className={styles.container}>
                     <div className={styles.input}>
@@ -55,7 +57,7 @@ export default function Home() {
                             onChange={OnInputChange}
                             onPaste={OnInputChange}/>
                         <div className={styles.inputActions}>
-                            <button onClick={onClear}>Clear</button>
+                            <button onClick={clearInput}>Clear</button>
                         </div>
                     </div>
                     <div className={styles.preview}>
@@ -64,7 +66,6 @@ export default function Home() {
                         </div>
                         <div className={styles.previewActions}>
                             <button className={gstyles.icon}
-                                    disabled={!input}
                                     onClick={() => downloadAsPng(qr.createDataURL(5))}>
                                 <ArrowDownTrayIcon/>
                             </button>

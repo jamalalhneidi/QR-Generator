@@ -12,6 +12,10 @@ button {
     padding: 10px;
 }
 
+textarea {
+    display: block;
+}
+
 @media (prefers-color-scheme: dark) {
     :root {
 
