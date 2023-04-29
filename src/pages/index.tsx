@@ -64,7 +64,7 @@ export default function Home() {
                             {input && <InlineSVG src={svg} width={200} height={200}/>}
                         </div>
                         <div className='mt-4 flex items-center justify-center dark:text-gray-100'>
-                            <Dropdown className={'-mx-4'}
+                            <Dropdown trigger={'hover'} className={'-mx-4'}
                                       label={<ArrowDownTrayIcon className='w-[24px] h-[24px]'/>} inline
                                       arrowIcon={false}>
                                 <Dropdown.Item
