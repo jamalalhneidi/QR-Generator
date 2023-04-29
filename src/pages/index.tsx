@@ -3,7 +3,7 @@ import qrcode from '@/utils/qrcode/qrcode';
 import {useEffect, useRef, useState} from 'react';
 import InlineSVG from 'react-inlinesvg';
 import {ArrowDownTrayIcon} from "@heroicons/react/24/outline";
-import {Dropdown} from "flowbite-react";
+import MyMenu from "@/components/Menu/MyMenu";
 
 export default function Home() {
     const textareaRef = useRef<HTMLTextAreaElement>(null);
@@ -65,20 +65,11 @@ export default function Home() {
                         </div>
                         <div
                             className={`mt-4 flex items-center justify-center dark:text-gray-100 ${!input && 'invisible'}`}>
-                            <Dropdown placement={'bottom'} trigger={'hover'}
-                                      label={<ArrowDownTrayIcon className='w-[24px] h-[24px]'/>} inline
-                                      arrowIcon={false}>
-                                <Dropdown.Item
-                                    onClick={() => downloadAsPng(qr.createDataURL(5))}
-                                >
-                                    PNG
-                                </Dropdown.Item>
-                                <Dropdown.Item
-                                    onClick={() => downloadAsSvg()}
-                                >
-                                    SVG
-                                </Dropdown.Item>
-                            </Dropdown>
+                            <MyMenu label={<ArrowDownTrayIcon className='w-[24px] h-[24px]'/>}>
+                                <MyMenu.Item onClick={() => downloadAsPng(qr.createDataURL(5))}>PNG</MyMenu.Item>
+                                <MyMenu.Item
+                                    onClick={() => downloadAsSvg()}>SVG</MyMenu.Item>
+                            </MyMenu>
                         </div>
                     </div>
                 </div>
