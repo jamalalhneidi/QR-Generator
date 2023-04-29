@@ -1,10 +1,9 @@
 import Head from 'next/head';
-import styles from '@/styles/Home.module.css';
-import gstyles from '@/styles/global.module.css';
 import qrcode from '@/utils/qrcode/qrcode';
 import {useEffect, useRef, useState} from 'react';
 import InlineSVG from 'react-inlinesvg';
 import {ArrowDownTrayIcon} from "@heroicons/react/24/outline";
+import {Dropdown} from "flowbite-react";
 
 export default function Home() {
     const textareaRef = useRef<HTMLTextAreaElement>(null);
@@ -45,30 +44,40 @@ export default function Home() {
             <Head>
                 <title>QR Code Generator</title>
             </Head>
-
-            <div className={styles.main}>
-                <div className={styles.container}>
-                    <div className={styles.input}>
+            <div className='flex h-screen w-screen items-center justify-center dark:bg-gray-800'>
+                <div className='flex'>
+                    <div className='flex flex-col items-center justify-center'>
                         <textarea
+                            className='resize-none border-2 p-1 h-[200px] w-[400px] dark:placeholder-gray-300 dark:bg-gray-500 dark:text-gray-100'
                             ref={textareaRef}
                             name='input'
                             placeholder={'Data to encode...'}
                             value={input}
                             onChange={OnInputChange}
                             onPaste={OnInputChange}/>
-                        <div className={styles.inputActions}>
+                        <div className='mt-4 dark:text-gray-100'>
                             <button onClick={clearInput}>Clear</button>
                         </div>
                     </div>
-                    <div className={styles.preview}>
-                        <div className={styles.previewSkeleton}>
+                    <div className={`ml-8 flex flex-col ${!input && 'invisible'}`}>
+                        <div className='w-[200px] h-[200px]'>
                             {input && <InlineSVG src={svg} width={200} height={200}/>}
                         </div>
-                        <div className={styles.previewActions}>
-                            <button className={gstyles.icon}
-                                    onClick={() => downloadAsPng(qr.createDataURL(5))}>
-                                <ArrowDownTrayIcon/>
-                            </button>
+                        <div className='mt-4 flex items-center justify-center dark:text-gray-100'>
+                            <Dropdown className={'-mx-4'}
+                                      label={<ArrowDownTrayIcon className='w-[24px] h-[24px]'/>} inline
+                                      arrowIcon={false}>
+                                <Dropdown.Item
+                                    onClick={() => downloadAsPng(qr.createDataURL(5))}
+                                >
+                                    PNG
+                                </Dropdown.Item>
+                                <Dropdown.Item
+                                    onClick={() => downloadAsSvg()}
+                                >
+                                    SVG
+                                </Dropdown.Item>
+                            </Dropdown>
                         </div>
                     </div>
                 </div>
