@@ -56,15 +56,19 @@ const Main = () => {
                             value={input}
                             onChange={OnInputChange}
                             onPaste={OnInputChange}/>
-                        <button className={'mt-4'} onClick={clearInput}>Clear</button>
+                        <Button className={'mt-4'} onClick={clearInput}>Clear</Button>
                     </div>
                     <div className={`ml-8 flex flex-col`}>
-                        <div className='bg-white w-[200px] h-[200px]'>
+                        <div className='bg-white border-4 box-content w-[200px] h-[200px]'>
                             {input && <InlineSVG src={svg} width={200} height={200}/>}
                         </div>
                         <div
-                            className={`mt-4 flex items-center justify-center dark:text-gray-100 ${!input && 'invisible'}`}>
-                            <MyMenu label={<ArrowDownTrayIcon className='w-[24px] h-[24px]'/>}>
+                            className={`mt-4 flex items-center justify-center dark:text-gray-100`}>
+                            <MyMenu
+                                disabled={!input}
+                                label={
+                                    <Button disabled={!input}><ArrowDownTrayIcon
+                                        className='w-[24px] h-[24px]'/></Button>}>
                                 <MyMenu.Item onClick={() => downloadAsPng(qr.createDataURL(5))}>PNG</MyMenu.Item>
                                 <MyMenu.Item
                                     onClick={() => downloadAsSvg()}>SVG</MyMenu.Item>

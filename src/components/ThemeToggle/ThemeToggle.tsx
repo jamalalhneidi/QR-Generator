@@ -10,10 +10,10 @@ const ThemeToggle = () => {
         if (!mounted) return null;
         const currentTheme = theme === "system" ? systemTheme : theme;
         return currentTheme === 'dark' ?
-            <SunIcon className="w-10 h-10 text-yellow-500 fixed top-8 right-8" role="button"
+            <SunIcon className="w-10 h-10 text-yellow-500 absolute right-8" role="button"
                      onClick={() => setTheme('light')}/>
             :
-            <MoonIcon className="w-10 h-10 text-gray-900 fixed top-8 right-8" role="button"
+            <MoonIcon className="w-10 h-10 text-gray-900 absolute right-8" role="button"
                       onClick={() => setTheme('dark')}/>
     };
     return renderThemeChanger();

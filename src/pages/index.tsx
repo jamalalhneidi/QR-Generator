@@ -1,12 +1,10 @@
-import {useTheme} from "next-themes";
 import Main from "@/components/Main/Main";
-import {useEffect} from "react";
-import ThemeToggle from "@/components/ThemeToggle/ThemeToggle";
+import Header from "@/components/Header/Header";
 
 export default function Home() {
     return (
         <>
-            <ThemeToggle/>
+            <Header/>
             <Main/>
         </>
     )
