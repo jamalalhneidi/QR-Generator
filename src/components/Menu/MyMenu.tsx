@@ -28,7 +28,9 @@ const MyMenu = ({label, children, disabled = false}: { label: ReactNode, childre
                      onMouseEnter={() => handleEnter(open)}
                      onMouseLeave={() => handleLeave(open)}
                 >
-                    <Popover.Button ref={triggerRef}>
+                    <Popover.Button ref={triggerRef}
+                                    disabled={disabled}
+                                    className={`bg-primary p-2 rounded ${disabled && 'bg-primary-dark cursor-not-allowed'} hover:bg-opacity-80 disabled:hover:bg-opacity-100`}>
                         {label}
                     </Popover.Button>
                     <Transition

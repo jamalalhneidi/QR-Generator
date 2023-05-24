@@ -67,8 +67,9 @@ const Main = () => {
                             <MyMenu
                                 disabled={!input}
                                 label={
-                                    <Button disabled={!input}><ArrowDownTrayIcon
-                                        className='w-[24px] h-[24px]'/></Button>}>
+                                    <ArrowDownTrayIcon
+                                        className={`w-[24px] h-[24px]`}/>
+                                }>
                                 <MyMenu.Item onClick={() => downloadAsPng(qr.createDataURL(5))}>PNG</MyMenu.Item>
                                 <MyMenu.Item
                                     onClick={() => downloadAsSvg()}>SVG</MyMenu.Item>
