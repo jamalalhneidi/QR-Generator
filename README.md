@@ -10,7 +10,7 @@ npm i
 npm run dev
 ```
 
-### Using:
+### Built with:
 
 - Next.js
 - Next themes
