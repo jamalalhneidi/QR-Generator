@@ -1,13 +1,6 @@
 # QR code generator
-
-## Getting Started
-
-```bash
-npm i
-npm run dev
-```
-
-### Built with:
+![alt text](ss.png)
+## Built with:
 
 - Next.js
 - Next themes
